@@ -1,0 +1,777 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Understanding Javascript</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/league.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <style>
+        .syntax img {
+            width: 300px;
+            float: left;
+            margin: 100px 25px 0 25px !important;
+        }
+        
+        code {
+            padding: 15px !important;
+        }
+        
+        .syntax img.arrow {
+            border: none !important;
+            box-shadow: none !important;
+            position: absolute;
+            left: 309px;
+            width: 247px;
+            z-index: -2;
+            top: -110px;
+        }
+        
+        .reveal pre {
+            box-shadow: none;
+        }
+        
+        .fragparent {
+            display: inline-block;
+            padding: 50px 0 !important;
+            background: #00a2a2;
+        }
+        
+        .fragparent .frags {
+            display: inline-block;
+            width: 215px;
+            padding: 40px 30px 0 25px;
+            vertical-align: text-bottom;
+            height: 150px;
+            background: #fff;
+            color: #000;
+            margin: 10px;
+            text-align: center;
+            font-size: 30px;
+            box-sizing: border-box;
+        }
+        
+        .stackbg {
+            position: relative;
+            width: 60%;
+            margin-left: 10px !important;
+            float: left;
+            text-align: center;
+            padding: 10px !important;
+            /* display: inline-block; */
+            /* background: yellow; */
+        }
+        
+        .stackbg2 {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #737373;
+            z-index: -1;
+        }
+        
+        .arr-class {
+            position: absolute;
+            top: 87px;
+            left: -253px;
+            height: 478px;
+            z-index: 0;
+            box-shadow: none !important;
+            border: none !important;
+        }
+        
+        .sk {
+            text-align: center;
+            width: 100%;
+            padding: 27px 10px !important;
+            background: orange;
+            box-sizing: border-box;
+            font-size: 30px !important;
+            margin: 15px 0 !important;
+            height: 152px;
+            color: #000;
+        }
+        
+        .vE {
+            width: 80px;
+            background: #fff;
+            font-size: 15px !important;
+            padding: 3px;
+            float: right;
+        }
+    </style>
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <section>
+                    <h2>
+                        Understanding Javascript
+                    </h2>
+                </section>
+                <section>
+                    <h2>
+                        Don't Immitate understand
+                    </h2>
+                </section>
+            </section>
+            <section>
+                <h2>Conceptual Aside</h2>
+                <h3 class="fragment">Syntax Parser</h3>
+                <h3 class="fragment">Lexical Environment</h3>
+                <h3 class="fragment">Execution Context</h3>
+            </section>
+            <section>
+                <section>
+                    <h2>Syntax Parser</h2>
+                    <h3>
+                        A program that reads your code and determines what it does and if its grammer is valid.
+                    </h3>
+                    <p>
+                        Your code isn't magic. Someone else wrote a program to translate it for the computer
+                    </p>
+                </section>
+                <section class="syntax">
+                    <img src="images/1.png" alt="">
+                    <img data-fragment-index="3" style="width:140px;" class="fragment fade-up" src="images/3.png" alt="">
+                    <img data-fragment-index="2" class="fragment fade-left" src="images/2.png" alt="">
+                    <img data-fragment-index="4" class="fragment fade-right arrow" src="images/4.png" alt="">
+                    <p class="fragment" data-fragment-index="5">
+                        Extra Stuff
+                    </p>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h2>Lexical Environment</h2>
+                    <h3>
+                        Where something sits physically in the code you write and what's around it.
+                    </h3>
+                    <p>
+                        In other words, in programming languages, where you to write your code is very important.
+                    </p>
+                </section>
+                <section class="syntax">
+                    <img src="images/1.png" alt="">
+                    <img data-fragment-index="3" style="width:140px;" class="fragment fade-up" src="images/3.png" alt="">
+                    <img data-fragment-index="2" class="fragment fade-left" src="images/2.png" alt="">
+                    <img data-fragment-index="4" class="fragment fade-right arrow" src="images/4.png" alt="">
+                </section>
+
+            </section>
+            <section>
+                <section>
+                    <h2>Execution Context</h2>
+                    <h3>
+                        A wrapper to help manage the code that is running.
+                    </h3>
+                    <p>
+                        There are lots of lexical environments. Which one is currently running is managed via execution contexts.The wrapper can contain things beyond what you've written in your code.
+                    </p>
+                </section>
+            </section>
+            <section>
+                <h2>Conceptual Aside</h2>
+                <h3 class="fragment">Name/value pairs</h3>
+                <h3 class="fragment">Objects</h3>
+            </section>
+            <section>
+                <section>
+                    <h2>Name/Value pairs</h2>
+                    <h3>
+                        A name which maps to a unique value.
+                    </h3>
+                    <p>
+                        The name may be defined more than once, but only can have one value in any given context. That value can be more name/value pairs.
+                    </p>
+                </section>
+                <section>
+                    <p style="font-family: monospace;">
+
+                        company = 'abhra cloud'
+
+                    </p>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h2>Object</h2>
+                    <h3>
+                        A collection of name/value pairs
+                    </h3>
+                    <p>
+                        The simplest definition when talking about Javascript
+                    </p>
+                </section>
+                <section>
+                    <p>Example</p>
+                    <pre>
+                        <code class="hljs" data-trim contenteditable>
+                                Address: {
+                                    Building: '3 cube towers',
+                                    Floor: 5
+                                  }
+                        </code>
+                    </pre>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h2>The Global Environment and the Global object</h2>
+                </section>
+                <section>
+                    <div class="fragparent">
+                        <h4>Execution Context</h4>
+                        <div data-fragment-index="1" class="frags fragment">
+                            Global Object
+                        </div>
+                        <div data-fragment-index="2" class="frags fragment">
+                            this
+                        </div>
+                        <div data-fragment-index="3" class="frags fragment">
+                            Outer Environment
+                        </div>
+                        <div data-fragment-index="4" class="frags fragment" style="width: 700px;">
+                            Code
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+
+            <section>
+                <section>
+                    <h2>The Excecution Context: <br>Creation and Hoisting</h2>
+                </section>
+                <section>
+                    <p>Example</p>
+                    <pre>
+                        <code class="hljs" data-trim contenteditable>
+                                b();
+                                console.log(a);
+                                
+                                var a = 'Hello World!';
+                                
+                                function b() {
+                                    console.log('Called b!');
+                                }
+                        </code>
+                    </pre>
+
+                </section>
+                <section>
+                    <div class="fragparent">
+                        <h4>Execution Context is Created (Creation Phase)</h4>
+                        <div data-fragment-index="1" class="frags fragment">
+                            Global Object
+                        </div>
+                        <div data-fragment-index="2" class="frags fragment">
+                            this
+                        </div>
+                        <div data-fragment-index="3" class="frags fragment">
+                            Outer Environment
+                        </div>
+                        <div data-fragment-index="4" class="frags fragment" style="width: 700px;">
+                            Setup Memory Space for Variables and Functions 'Hoisting'
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h2>Javascript and Undefined</h2>
+                </section>
+                <section>
+                    <div class="fragparent">
+                        <h4>Execution Context is Created (Creation Phase)</h4>
+                        <div data-fragment-index="1" class="frags fragment">
+                            Global Object
+                        </div>
+                        <div data-fragment-index="2" class="frags fragment">
+                            this
+                        </div>
+                        <div data-fragment-index="3" class="frags fragment">
+                            Outer Environment
+                        </div>
+                        <div data-fragment-index="4" class="frags fragment" style="width: 700px;">
+                            "Hoisting" Variables Setup (and set equal to 'undefined') and Function Setup
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <p>Example</p>
+                    <pre>
+                            <code class="hljs" data-trim contenteditable>
+                                    var a;
+                                    console.log(a);
+                                    
+                                    
+                                    if (a === undefined) {
+                                        console.log('a is undefined!');   
+                                    }
+                                    else {
+                                        console.log('a is defined!');   
+                                    }
+                            </code>
+                        </pre>
+
+                </section>
+            </section>
+
+
+            <section>
+                <section>
+                    <h2>The Execution Context(Execution Phase)</h2>
+                </section>
+                <section>
+                    <div class="fragparent">
+                        <h4>Execution Context is Created (Creation Phase)</h4>
+                        <div data-fragment-index="1" class="frags fragment">
+                            Global Object
+                        </div>
+                        <div data-fragment-index="2" class="frags fragment">
+                            this
+                        </div>
+                        <div data-fragment-index="3" class="frags fragment">
+                            Outer Environment
+                        </div>
+                        <div data-fragment-index="4" class="frags fragment" style="width: 700px;">
+                            Runs You Code
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <p>Example</p>
+                    <pre>
+                        <code class="hljs" data-trim contenteditable>
+                                function b() {
+                                    console.log('Called b!');
+                                }
+                                
+                                b();
+                                
+                                console.log(a);
+                                
+                                var a = 'Hello World!';
+                                
+                                console.log(a);
+                        </code>
+                    </pre>
+
+                </section>
+
+            </section>
+
+            <section>
+                <section>
+                    <h2>Single Threaded, Synchronous Execution</h2>
+                </section>
+                <section>
+                    <h3>Single Threaded:</h3>
+                    <h4>One Command at a time</h4>
+                </section>
+
+                <section>
+                    <h3>Synchronous:</h3>
+                    <h4>One at a time</h4>
+                    <p>And in order</p>
+                </section>
+
+            </section>
+
+            <section>
+                <section>
+                    <h2>Function Invocation and The Excecution Stack</h2>
+                </section>
+                <section>
+                    <h2>Invocation</h2>
+                    <h3>
+                        Running a function
+                    </h3>
+                    <p>
+                        In Javascript, by using parenthesis ()
+                    </p>
+                </section>
+                <section>
+                    <pre style="width: 30%; font-size: 30px;">
+                            <code class="hljs" data-trim contenteditable>
+
+                                    function b() { 
+
+                                    }
+
+                                    function a() {
+                                        b()
+                                    }
+                                    
+                                    a();
+                            </code>
+                        </pre>
+                </section>
+                <section>
+                    <div style="float:left; width: 30%;">
+                        <pre style="width: 100%; font-size: 30px;">
+                            <code class="hljs" data-trim contenteditable style="max-height:500px !important; height: 500px;">
+                                    function b() { 
+
+                                    }
+
+                                    function a() {
+                                        b()
+                                    }
+                                    
+                                    a();
+                            </code>
+                        </pre>
+                    </div>
+                    <div class="stackbg">
+                        <p class="fragment" data-fragment-index="3">Execution Stack</p>
+                        <div class="sk fragment fade-left" data-fragment-index="4">
+                            b()</br>
+                            Execution Context</br>
+                            (create and execute)
+                        </div>
+                        <div class="sk fragment fade-left" data-fragment-index="2">
+                            a()</br>
+                            Execution Context</br>
+                            (create and execute)
+                        </div>
+                        <div class="sk fragment fade-left" data-fragment-index="1">
+                            Global Execution Context</br>
+                            (created and code is executed)</br>
+                        </div>
+                        <div class="stackbg2 fragment" data-fragment-index="3">
+
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div style="float:left; width: 30%;">
+                        <pre style="width: 100%; font-size: 30px;">
+                                <code class="hljs" data-trim contenteditable style="max-height:500px !important; height: 500px;">
+                                        function b() { 
+    
+                                        }
+    
+                                        function a() {
+                                            b()
+                                        }
+                                        
+                                        a();
+                                </code>
+                            </pre>
+                    </div>
+                    <div class="stackbg">
+                        <p>Execution Stack</p>
+                        <div class="sk fragment fade-out" data-fragment-index="1">
+                            b()</br>
+                            Execution Context</br>
+                            (create and execute)
+                        </div>
+                        <div class="sk fragment fade-out" data-fragment-index="2">
+                            a()</br>
+                            Execution Context</br>
+                            (create and execute)
+                        </div>
+                        <div class="sk">
+                            Global Execution Context</br>
+                            (created and code is executed)</br>
+                        </div>
+                        <div class="stackbg2">
+
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <section>
+                <h2>Functions, Context, And Variable Environments</h2>
+            </section>
+
+            <section>
+                <section>
+                    <h2>Variable Environment</h2>
+                    <h3>
+                        Where the variables live
+                    </h3>
+                    <p>
+                        And how they relate to each other in memory
+                    </p>
+                </section>
+                <section>
+                    <pre style="width: 50%; font-size: 30px;">
+                        <code class="hljs" data-trim contenteditable style="max-height:500px !important; height: 500px;">
+                                function b() {
+                                    var myVar;
+                                }
+                                
+                                function a() {
+                                    var myVar = 2;
+                                    b();
+                                }
+                                
+                                var myVar = 1;
+                                a();
+                                
+                        </code>
+                    </pre>
+                </section>
+                <section>
+                    <div style="float:left; width: 35%;">
+                        <pre style="width: 100%; font-size: 30px;">
+                                <code class="hljs" data-trim contenteditable style="max-height:500px !important; height: 500px;">
+                                        function b() {
+                                            var myVar;
+                                        }
+                                        
+                                        function a() {
+                                            var myVar = 2;
+                                            b();
+                                        }
+                                        
+                                        var myVar = 1;
+                                        a();
+                                </code>
+                            </pre>
+                    </div>
+                    <div class="stackbg">
+                        <p>Execution Stack</p>
+                        <div class="sk fragment fade-left" data-fragment-index="4">
+                            b()</br>
+                            Execution Context</br>
+                            (create and execute)
+                            <div class="vE">
+                                myVar <br> undefined
+                            </div>
+                        </div>
+                        <div class="sk fragment fade-left" data-fragment-index="2">
+                            a()</br>
+                            Execution Context</br>
+                            (create and execute)
+                            <div class="vE">
+                                myVar <br> 2
+                            </div>
+                        </div>
+                        <div class="sk fragment fade-left" data-fragment-index="1">
+                            Global Execution Context</br>
+                            (created and code is executed)</br>
+                            <div class="vE">
+                                myVar <br> 1
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>The Scope Chain</h2>
+                </section>
+                <section>
+                    <pre style="width: 100%; font-size: 30px;">
+                        <code class="hljs" data-trim contenteditable style="max-height:500px !important; height: 500px;">
+                                function b() {
+                                    console.log(myVar);
+                                }
+                                
+                                function a() {
+                                    var myVar = 2;
+                                    b();
+                                }
+                                
+                                var myVar = 1;
+                                a();
+                        </code>
+                    </pre>
+                </section>
+                <section data-background="#fff">
+                    <div class="stackbg" style="width:70%; float:right;">
+                        <p style="color:#000;">Execution Stack</p>
+                        <div class="sk fragment fade-left" data-fragment-index="3">
+                            b()</br>
+                            Execution Context</br>
+                            (create and execute)
+                            <div class="vE" style="padding:5px; height:30px;">
+
+                            </div>
+                        </div>
+                        <div class="sk fragment fade-left" data-fragment-index="2">
+                            a()</br>
+                            Execution Context</br>
+                            (create and execute)
+                            <div class="vE">
+                                myVar <br> 2
+                            </div>
+                        </div>
+                        <div class="sk fragment fade-left" data-fragment-index="1">
+                            Global Execution Context</br>
+                            (created and code is executed)</br>
+                            <div class="vE">
+                                myVar <br> 1
+                            </div>
+                        </div>
+                        <img src="./images/sd.png" alt="" class="fragment arr-class fade-right" data-fragment-index="4">
+                        <div class="fragment arr-class fade-down" style="left:-561px;" data-fragment-index="5">
+                            <p style="top: 71px;position: relative;color: #000;">Scope Chain</p>
+                            <img src="./images/arrow.png" alt="" style="border: none; box-shadow: none;">
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <section>
+                <h2>
+                    Asynchronous CallBack
+                </h2>
+            </section>
+            <section>
+                <section>
+                    <h2>Asynchronous</h2>
+                    <h3>
+                        More than one at a time
+                    </h3>
+                </section>
+                <section>
+                    <h2>Asynchronous</h2>
+                    <h3>
+                        More than one at a time
+                    </h3>
+                </section>
+            </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+
+    <script src=" lib/js/head.min.js "></script>
+    <script src="js/reveal.js "></script>
+
+    <script>
+        // More info about config & dependencies:
+        // - https://github.com/hakimel/reveal.js#configuration
+        // - https://github.com/hakimel/reveal.js#dependencies
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+            overview: true,
+            dependencies: [{
+                src: 'plugin/markdown/marked.js'
+            }, {
+                src: 'plugin/markdown/markdown.js'
+            }, {
+                src: 'plugin/notes/notes.js',
+                async: true
+            }, {
+                src: 'plugin/highlight/highlight.js',
+                async: true,
+                callback: function() {
+                    hljs.initHighlightingOnLoad();
+                }
+            }]
+        });
+
+
+
+        // 
+
+
+
+        function startStopWatch(callback, time) {
+
+
+            var counter = 0;
+
+            setInterval(function() {
+                counter++;
+                if (callback(counter)) {
+                    return false;
+                } else {
+
+                    console.log(counter);
+                };
+            }, time);
+
+
+        }
+
+        function callback(counter) {
+            // if (counter > 5) {
+            //     return true;
+            // }
+            return counter > 5;
+        }
+
+        function callback2(counter) {
+            return counter > 10;
+        }
+
+        // startStopWatch(callback, 50);
+        // console.log("test1");
+        // startStopWatch(callback, 1000);
+        // console.log("test2");
+
+
+
+
+
+        function b() {
+            var myVar;
+            console.log(myVar);
+        }
+
+        function a() {
+            var myVar = 2;
+            console.log(myVar);
+            b();
+        }
+
+        var myVar = 1;
+        console.log(myVar);
+        a();
+    </script>
+</body>
+
+</html>
