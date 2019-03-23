@@ -68,6 +68,57 @@
             /* background: yellow; */
         }
         
+        .engine {
+            display: inline-block;
+            width: 230px;
+            height: 200px;
+            background-color: #a90075;
+            vertical-align: middle !important;
+            margin: 0 41px !important;
+            position: relative;
+        }
+        
+        .engine img {
+            border: none;
+            box-shadow: none;
+            background: none;
+            position: absolute;
+            width: 66px;
+            right: -79px;
+            top: 60px;
+            box-shadow: none !important;
+            border: none !important;
+            background: none !important;
+        }
+        
+        .engine h3 {
+            padding-top: 68px;
+            font-size: 36px;
+        }
+        
+        .right-bar {
+            width: 300px;
+            float: right;
+            position: relative;
+            bottom: 0;
+            height: 550px;
+        }
+        
+        .right-bar p {
+            position: absolute;
+            bottom: 0;
+        }
+        
+        .right-bar .evntbx {
+            width: 120px;
+            font-size: 20px;
+            height: 100px;
+            background: #000;
+            line-height: 90px;
+            display: inline-block;
+            margin: 5px;
+        }
+        
         .stackbg2 {
             content: "";
             display: block;
@@ -75,7 +126,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
+            height: 100%rgb(255, 199, 199);
             background: #737373;
             z-index: -1;
         }
@@ -655,14 +706,183 @@
                         More than one at a time
                     </h3>
                 </section>
+                <section style="padding: 60px 4px; background-color:rgb(70, 139, 146);">
+                    <h3>Browser</h3>
+                    <div class="engine fragment" data-fragment-index="2">
+                        <h3>Rendering Engine</h3>
+                        <img src="images/lrarrow.png" />
+                    </div>
+                    <div class="engine fragment" data-fragment-index="1">
+                        <h3>
+                            The Javascript Engine
+                        </h3>
+                        <img src="images/lrarrow.png" class="fragment" data-fragment-index="3" />
+                    </div>
+                    <div class="engine fragment" data-fragment-index="3">
+                        <h3>HTTP Request</h3>
+                    </div>
+
+                </section>
+
                 <section>
-                    <h2>Asynchronous</h2>
-                    <h3>
-                        More than one at a time
-                    </h3>
+                    <div style="width:600px; float:left;">
+
+                        <div class="sk fragment fade-left" data-fragment-index="3">
+                            b()</br>
+                            Execution Context</br>
+                            (create and execute)
+
+                        </div>
+                        <div class="sk fragment fade-left" data-fragment-index="2">
+                            a()</br>
+                            Execution Context</br>
+                            (create and execute)
+
+                        </div>
+                        <div class="sk fragment fade-left" data-fragment-index="1">
+                            Global Execution Context</br>
+                            (created and code is executed)</br>
+
+                        </div>
+                    </div>
+                    <div class="right-bar">
+                        <div style="position:absolute; bottom:70px;">
+                            <div class="evntbx fragment" data-fragment-index="5">CLICK</div>
+                            <div class="evntbx fragment" data-fragment-index="6">HTTP</div>
+                        </div>
+                        <p class="fragment" data-fragment-index="4">event queue</p>
+                    </div>
+                </section>
+                <section>
+                    <div style="width:600px; float:left;">
+
+                        <div class="sk fragment fade-out" data-fragment-index="1">
+                            b()</br>
+                            Execution Context</br>
+                            (create and execute)
+
+                        </div>
+                        <div class="sk fragment fade-out" data-fragment-index="2">
+                            a()</br>
+                            Execution Context</br>
+                            (create and execute)
+
+                        </div>
+                        <div class="sk fragment fade-out" data-fragment-index="3">
+                            Global Execution Context</br>
+                            (created and code is executed)</br>
+
+                        </div>
+
+                        <div class="sk fragment fade-right" data-fragment-index="4" style="margin-top:-150px !important;">
+                            clickHandler()</br>
+                            Execution Context</br>
+                            (create and execute)
+
+                        </div>
+
+                    </div>
+                    <div class="right-bar">
+                        <div style="position:absolute; bottom:70px;">
+                            <div class="evntbx fragment fade-out" data-fragment-index="6">CLICK</div>
+                            <div class="evntbx">HTTP</div>
+                        </div>
+                        <p>event queue</p>
+                    </div>
+                </section>
+
+                <section>
+                    <p>Example</p>
+                    <pre>
+                        <code class="hljs" data-trim contenteditable>
+                            // long running function
+                            function waitThreeSeconds() {
+                                var ms = 3000 + new Date().getTime();
+                                while (new Date() < ms){}
+                                console.log('finished function');
+                            }
+                            
+                            function clickHandler() {
+                                console.log('click event!');   
+                            }
+                            
+                            // listen for the click event
+                            document.addEventListener('click', clickHandler);
+                            
+                            
+                            waitThreeSeconds();
+                            console.log('finished execution');
+                        </code>
+                    </pre>
                 </section>
             </section>
+            <section>
+                <h2>Types and Javascript</h2>
+            </section>
+            <section>
+                <section>
+                    <h2>Dynamic Typing</h2>
+                    <p>You don't have to tell JS what type of data a variable holds, JS will figure that out while your code is running.</p>
+                </section>
+                <section>
+                    <div class="fra">
+                        <h3>Stat ic Typing</h3>
+                        <p>bool isNew = 'hello'; // an error</p>
+                    </div>
+                    <div>
+                        <h3>Dynamic Typing</h3>
+                        <p>var isNew = true; // no errors</p>
+                        <p>isNew = 'yup!';</p>
+                        <p>isNew = 1;</p>
+                    </div>
+                </section>
+            </section>
+            <section>
+                <h2>
+                    Operator Precedence and Associativity
+                </h2>
+            </section>
+            <section>
+                <section>
+                    <h2>
+                        Associativity
+                    </h2>
+                    <p>What order operator functions get called in: left to right or right to left.
+                    </p>
+                    <p>
+                        When functions have the same precedence.
+                    </p>
+                </section>
+                <section>
+                    <h3>Example</h3>
+                    <pre>
+                        <code class="hljs" data-trim contenteditable>
+                            var a = 3 + 4 * 5;
+                            console.log(a);
+                        </code>
+                    </pre>
+                </section>
+                <section>
+                    <h4>Operator Precedence</h4>
+                    <iframe width="1000" height="500" src="https://www.iqaat.com/bs/tech/classes/understand-javascript/Operator-Precedence-In-Javascript.pdf">
+                        
+                    </iframe>
+                </section>
+                <section>
+                    <h4>Example</h4>
+                    <pre>
+                        <code class="hljs" data-trim contenteditable>
+                            var a = 2, b = 3, c = 4;
+                            
+                            a = b = c;
 
+                            console.log(a);
+                            console.log(b);
+                            console.log(c);
+                        </code>
+                    </pre>
+                </section>
+            </section>
 
 
 
@@ -773,5 +993,37 @@
         a();
     </script>
 </body>
+
+</html> console.log(myVar); a();
+</script>
+</body>
+
+</html> var counter = 0; setInterval(function() { counter++; if (callback(counter)) { return false; } else { console.log(counter); }; }, time); } function callback(counter) { // if (counter > 5) { // return true; // } return counter > 5; } function callback2(counter)
+{ return counter > 10; } // startStopWatch(callback, 50); // console.log("test1"); // startStopWatch(callback, 1000); // console.log("test2"); function b() { var myVar; console.log(myVar); } function a() { var myVar = 2; console.log(myVar); b(); } var
+myVar = 1; console.log(myVar); a();
+</script>
+</body>
+
+</html> console.log(myVar); a();
+</script>
+</body>
+
+</html>
+
+</html> console.log(myVar); a();
+</script>
+</body>
+
+</html>
+
+</html>
+
+</html>
+
+</html>
+
+</html>
+
+</html>
 
 </html>
