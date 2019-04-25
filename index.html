@@ -160,6 +160,32 @@
             padding: 3px;
             float: right;
         }
+        
+        .head-title {
+            width: 100%;
+            top: 1.5em;
+            -webkit-animation: bummer 20s;
+            animation: bummer 20s;
+            -webkit-transform: scale(10, 10);
+            position: fixed;
+            transform: scale(10, 10);
+            -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+            /* Add this so that your modal doesn't 
+                                      close after the animation completes */
+        }
+        
+        @-webkit-keyframes bummer {
+            100% {
+                -webkit-transform: scale(1, 1);
+            }
+        }
+        
+        @keyframes bummer {
+            100% {
+                transform: scale(1, 1);
+            }
+        }
     </style>
     <!-- Printing and PDF exports -->
     <script>
@@ -175,15 +201,63 @@
     <div class="reveal">
         <div class="slides">
             <section>
+                <audio data-autoplay src="lib/Technology.mp3"></audio>
+                <!-- <audio data-autoplay>
+                        <source src="lib/Technology.mp3" type="audio/mpeg">
+                      
+                      </audio> -->
+                <h1 class="head-title">Javascript</h1>
+            </section>
+            <section>
                 <section>
                     <h2>
                         Understanding Javascript
                     </h2>
                 </section>
                 <section>
-                    <h2>
-                        Don't Immitate understand
-                    </h2>
+                    <h3>
+                        Don't Immitate
+                    </h3>
+                    <h1>
+                        Understand
+                    </h1>
+                </section>
+            </section>
+            <section>
+                <pre>
+                    <code class="hljs" data-trim contenteditable>
+                        function b() {
+                            var myVar;
+                            console.log(myVar);
+                        }
+                        function a() {
+                            var myVar = 2;
+                            console.log(myVar);
+                            b();
+                        }
+                        console.log(myVar);
+                        var myVar = 1;
+                        console.log(myVar);
+                        a();
+                        console.log(myVar);
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <section>
+                    <h1>
+                        Javascript Engine
+                    </h1>
+                </section>
+                <section>
+                    <p>A JavaScript engine is a program or an interpreter which executes JavaScript code</p>
+                </section>
+                <section>
+                    <p><b>V8</b> (by google)</p>
+                    <p class="fragment" data-fragment-index="2"><b>Rhino</b> (by Mozilla foundation)</p>
+                    <p class="fragment" data-fragment-index="3"><b>SpiderMonkey</b> (by firefox)</p>
+                    <p class="fragment" data-fragment-index="4"><b>JavascriptCore</b> (by Appple)</p>
+                    <p class="fragment" data-fragment-index="5">few more...</p>
                 </section>
             </section>
             <section>
@@ -883,6 +957,47 @@
                     </pre>
                 </section>
             </section>
+            <section>
+                <h2>Coercion</h2>
+            </section>
+            <section>
+                <section>
+                    <h2>Coercion</h2>
+                    <p>
+                        Converting a value from one type of another
+                    </p>
+                    <p>
+                        This happens quite often in Javascript because it's dynamically typed.
+                    </p>
+                </section>
+                <section>
+                    <h4>Example</h4>
+                    <pre>
+                        <code class="hljs" data-trim contenteditable>
+                            var a = 1 + "2";
+                             
+                            console.log(a);
+                        </code>
+                    </pre>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>Comparion Operators</h2>
+                </section>
+                <section>
+                    <h4>Example</h4>
+                    <pre>
+                            <code class="hljs" data-trim contenteditable>
+                                console.log(1 < 2 < 3);
+                            </code>
+                        </pre>
+                </section>
+            </section>
+
+
+
+
 
 
 
@@ -1013,6 +1128,12 @@ myVar = 1; console.log(myVar); a();
 </html> console.log(myVar); a();
 </script>
 </body>
+
+</html>
+
+</html>
+
+</html>
 
 </html>
 
