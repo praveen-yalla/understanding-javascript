@@ -186,6 +186,12 @@
                 transform: scale(1, 1);
             }
         }
+        
+        .author {
+            position: fixed;
+            width: 100%;
+            top: 10em;
+        }
     </style>
     <!-- Printing and PDF exports -->
     <script>
@@ -200,13 +206,19 @@
 <body>
     <div class="reveal">
         <div class="slides">
+            <section data-background="images/JavaScript-logo.png">
+
+            </section>
             <section>
-                <audio data-autoplay src="lib/Technology.mp3"></audio>
+                <audio data-autoplay controls src="lib/Technology.mp3" style="visibility:hidden;"></audio>
                 <!-- <audio data-autoplay>
                         <source src="lib/Technology.mp3" type="audio/mpeg">
                       
                       </audio> -->
                 <h1 class="head-title">Javascript</h1>
+                <p class="fragment author">
+                    <small><a href="https://praveen-yalla.github.io">Praveen Yalla</a> | <a href="https://github.com/praveen-yalla">github: praveen-yalla</a></small>
+                </p>
             </section>
             <section>
                 <section>
